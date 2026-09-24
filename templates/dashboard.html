@@ -1,0 +1,45 @@
+
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Кабинет</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+<div class="container">
+  <div class="card">
+    <div class="card__header">
+      <h1>Кабинет alice</h1>
+      <p class="subtitle">Баланс: <b>1000.00</b></p>
+    </div>
+
+    <div class="output">
+      <h3>Перевод</h3>
+      <form class="form" method="post" action="/transfer">
+        <div class="input-wrap">
+          <label for="to">Кому</label>
+          <select id="to" name="to">
+              <option value="attacker">attacker</option>
+              <option value="friend">friend</option>
+          </select>
+        </div>
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}">
+        <div class="input-wrap">
+          <label for="amount">Сумма</label>
+          <input id="amount" name="amount" type="number" value="10">
+        </div>
+        <button type="submit">Отправить</button>
+      </form>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="output">
+      <a href="/logout"><button>Выйти</button></a>
+    </div>
+  </div>
+</div>
+</body>
+</html>
